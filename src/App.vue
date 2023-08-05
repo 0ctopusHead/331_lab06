@@ -10,6 +10,7 @@ const { message } = storeToRefs(store)
 
 <template>
   <header class="max-h-screen leading-normal">
+    <div class="text-center bg-lime-200">Yanwarut</div>
     <div id="flashMessage" v-if="message">
     <h4>{{ message }}</h4>
     </div>
