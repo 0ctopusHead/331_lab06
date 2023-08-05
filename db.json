@@ -1,0 +1,102 @@
+{
+  "events": [
+    {
+      "id": 123,
+      "category": "animal welfare",
+      "title": "Cat Adoption Day",
+      "description": "Find your new feline friend at this event.",
+      "location": "Meow Town",
+      "date": "January 28, 2022",
+      "time": "12:00",
+      "petsAllowed": true,
+      "organizer": "Kat Laydee"
+    },
+    {
+      "id": 456,
+      "category": "food",
+      "title": "Community Gardening",
+      "description": "Join us as we tend to the community edible plants.",
+      "location": "Flora City",
+      "date": "March 14, 2022",
+      "time": "10:00",
+      "petsAllowed": true,
+      "organizer": "Fern Pollin"
+    },
+    {
+      "id": 789,
+      "category": "sustainability",
+      "title": "Beach Cleanup",
+      "description": "Help pick up trash along the shore.",
+      "location": "Playa Del Carmen",
+      "date": "July 22, 2022",
+      "time": "11:00",
+      "petsAllowed": false,
+      "organizer": "Carey Wales"
+    },
+    {
+      "id": 1001,
+      "category": "animal welfare",
+      "title": "Dog Adoption Day",
+      "description": "Find your new canine friend at this event.",
+      "location": "Woof Town",
+      "date": "August 28, 2022",
+      "time": "12:00",
+      "petsAllowed": true,
+      "organizer": "Dawg Dahd"
+    },
+    {
+      "id": 1002,
+      "category": "food",
+      "title": "Canned Food Drive",
+      "description": "Bring your canned food to donate to those in need.",
+      "location": "Tin City",
+      "date": "September 14, 2022",
+      "time": "3:00",
+      "petsAllowed": true,
+      "organizer": "Kahn Opiner"
+    },
+    {
+      "id": 1003,
+      "category": "sustainability",
+      "title": "Highway Cleanup",
+      "description": "Help pick up trash along the highway.",
+      "location": "Highway 50",
+      "date": "July 22, 2022",
+      "time": "11:00",
+      "petsAllowed": false,
+      "organizer": "Brody Kill"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "studentId": "SE-001",
+      "name": "Prayuth",
+      "surname": "The minister",
+      "gpa": 3.59,
+      "image": "https://firebasestorage.googleapis.com/v0/b/publicimage-41deb.appspot.com/o/tu.jpg?alt=media&token=171d65d0-8e8d-45d2-81db-021836316e02",
+      "penAmount": 15,
+      "description": "The great man ever!!!!"
+    },
+    {
+      "id": 2,
+      "studentId": "SE-002",
+      "name": "Cherprang ",
+      "surname": "BNK48",
+      "gpa": 4.01,
+      "image": "https://firebasestorage.googleapis.com/v0/b/publicimage-41deb.appspot.com/o/cherprang.png?alt=media&token=e6639e24-e84c-4246-ab0e-8b7977b57f4f",
+      "penAmount": 2,
+      "description": "Code for Thailand"
+    },
+    {
+      "id": 3,
+      "studentId": "SE-003",
+      "name": "Nobi",
+      "surname": "Nobita",
+      "gpa": 1.77,
+      "image": "https://firebasestorage.googleapis.com/v0/b/publicimage-41deb.appspot.com/o/Nobita.png?alt=media&token=5ac97e03-40c4-47b0-8ad9-f5b52410fe37",
+      "penAmount": 0,
+      "description": "Welcome to Olympic"
+    }
+  ]
+}
