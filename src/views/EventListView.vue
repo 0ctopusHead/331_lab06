@@ -44,14 +44,6 @@ const hasNextPage = computed(() =>{
 <template>
   <h1>Events For Good</h1>
   <main class="flex flex-col items-center">
-    <!-- <div class="per-page-select">
-     <label for="per-page">Event/Pages</label>
-     <select id="perpage" v-model="perPage">
-      <option value="2">2</option>
-      <option value="4">4</option>
-      <option value="6">6</option>
-     </select>
-    </div> -->
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
     <div class="pagination">
       <RouterLink :to="{ name: 'event-list', query: { page: page - 1 } }" rel="prev" v-if="page != 1" id="page-prev"

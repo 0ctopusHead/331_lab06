@@ -18,7 +18,7 @@ export default{
     getEventById(id:number): Promise<AxiosResponse<EventItem>>{
         return apiClient.get<EventItem>('events/'+id.toString())
     },
-    getMenu(): Promise<AxiosResponse<EventItem[]>>{
-        return apiClient.get<EventItem[]> ('/events')
+    saveEvent(event: EventItem): Promise<AxiosResponse<EventItem>>{
+        return apiClient.post<EventItem>('/events', event)
     }
 }

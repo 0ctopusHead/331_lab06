@@ -7,8 +7,10 @@ import EventDetailView from '@/views/event/EventDetailView.vue'
 import EventEditView from '@/views/event/EventEditView.vue'
 import EventRegisterView from "@/views/event/EventRegisterView.vue"
 import EventLayoutView from "@/views/event/EventLayoutView.vue"
+import AddOrganizerView from "@/views/OrganizationForm.vue"
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
+import AddEventView from '@/views/EventFormView.vue'
 import NProgress  from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
@@ -19,7 +21,8 @@ const router = createRouter({
       path: '/',
       name: 'event-list',
       component: EventListView,
-      props: (route) => ({page : parseInt(route.query?.page as string || '1') })
+      props: (route) => ({page : parseInt(route.query?.page as string || '1') }),
+
     },
     {
       path: '/about',
@@ -27,9 +30,20 @@ const router = createRouter({
       component: AboutView
     },
     {
-      path: '/menu',
+      path: '/add-event',
+      name: 'add-event',
+      component: AddEventView
+    },
+    {
+      path: '/add-organizer',
+      name: 'add-organizer',
+      component:AddOrganizerView
+    },
+    {
+      path: '/',
       name: 'menu',
-      component: MenuView
+      component: MenuView,
+      props: (route) => ({page: parseInt(route.query?.page as string || '1')})
     },
     {
       path: '/studentInfo',
@@ -50,7 +64,7 @@ const router = createRouter({
           eventStore.setEvent(respond.data)
         })
         .catch((error) => {
-          if(error.request && error.request.status === 404){
+          if(error.request.status === 404){
             return {
               name: '404-resource',
               params: {resource: 'event'}

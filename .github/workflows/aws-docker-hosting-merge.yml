@@ -53,4 +53,4 @@ jobs:
             docker compose down
             docker compose pull
             docker compose up -d
-            rm -rf /home/ubuntu/lab06
+            rm -rf /home/ubuntu/lab6

@@ -2,25 +2,28 @@
   <div class="organize-class">
    <div class="organize-card">
     <span>
-       Category : {{ event.category }}
+       ID : {{organizer?.id}}
     </span> 
      <br/>
     <span>
-       Organizer : {{ event.organizer }}
+       Organizer : {{ organizer?.organizer }}
     </span>
-  
+    <br/>
+    <span>
+      Location : {{ organizer?.address }}
+    </span>
    
    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import type { EventItem } from '@/type'
-  import type { PropType } from 'vue' 
-  
-const props = defineProps({
-  event: {
-    type: Object as PropType<EventItem>,
+import type { OrganizerItem } from '@/organizer';
+import type { PropType } from 'vue';
+
+defineProps({
+  organizer: {
+    type: Object as PropType<OrganizerItem>,
     required: true
   }
 })

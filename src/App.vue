@@ -14,9 +14,11 @@ const { message } = storeToRefs(store)
     <div id="flashMessage" v-if="message">
     <h4>{{ message }}</h4>
     </div>
-    <nav>
+    <nav class="space-x-2 text-center">
       <RouterLink :to="{name: 'event-list' }">Home</RouterLink> | 
       <RouterLink :to="{name: 'about'}">About</RouterLink> |
+      <RouterLink :to="{name: 'add-event'}">New Event</RouterLink> |
+      <RouterLink :to="{name: 'add-organizer'}">New Organizer</RouterLink> |
       <RouterLink :to="{name: 'menu'}">Menu</RouterLink> |
       <RouterLink :to="{name: 'student-info'}">Student</RouterLink> 
     </nav>
