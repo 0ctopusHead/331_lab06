@@ -7,7 +7,6 @@ import EventDetailView from '@/views/event/EventDetailView.vue'
 import EventEditView from '@/views/event/EventEditView.vue'
 import EventRegisterView from "@/views/event/EventRegisterView.vue"
 import EventLayoutView from "@/views/event/EventLayoutView.vue"
-import AddOrganizerView from "@/views/OrganizationForm.vue"
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import AddEventView from '@/views/EventFormView.vue'
@@ -34,11 +33,11 @@ const router = createRouter({
       name: 'add-event',
       component: AddEventView
     },
-    {
-      path: '/add-organizer',
-      name: 'add-organizer',
-      component:AddOrganizerView
-    },
+    // {
+    //   path: '/add-organizer',
+    //   name: 'add-organizer',
+    //   component:AddOrganizerView
+    // },
     {
       path: '/',
       name: 'menu',

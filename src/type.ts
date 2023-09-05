@@ -7,5 +7,10 @@ export interface EventItem {
   date: string
   time: string
   petsAllowed: boolean
-  organizer: string
+  organizer: EventOrganizer 
+}
+
+export interface EventOrganizer {
+  id : number
+  name: string
 }

@@ -6,24 +6,20 @@
     </span> 
      <br/>
     <span>
-       Organizer : {{ organizer?.organizer }}
+       Organizer : {{ organizer?.name}}
     </span>
     <br/>
-    <span>
-      Location : {{ organizer?.address }}
-    </span>
-   
    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { OrganizerItem } from '@/organizer';
+import type { EventOrganizer } from '@/type';
 import type { PropType } from 'vue';
 
 defineProps({
   organizer: {
-    type: Object as PropType<OrganizerItem>,
+    type: Object as PropType<EventOrganizer>,
     required: true
   }
 })
