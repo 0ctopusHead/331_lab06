@@ -1,6 +1,5 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosResponse } from "axios"
-import type { OrganizerItem } from "@/organizer"
 import type { EventOrganizer } from "@/type";
 
 const apiClient : AxiosInstance = axios.create({

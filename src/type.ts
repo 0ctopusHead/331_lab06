@@ -14,3 +14,10 @@ export interface EventOrganizer {
   id : number
   name: string
 }
+
+export interface EventParticipant{
+  id: number
+  name: string
+  telNo: string
+  
+}
