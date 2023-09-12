@@ -17,7 +17,7 @@ const event = ref<EventItem>({
   location: "",
   date: "",
   time: "",
-  organizer: { id: 0, name: "" },
+  organizer: { id: 0, name:"" },
   petsAllowed: false,
 });
 const router = useRouter();
@@ -43,6 +43,7 @@ function saveEvent() {
 const organizers = ref<EventOrganizer[]>([]);
 OrganizerService.getOrganizers().then((response) => {
   organizers.value = response.data;
+
 });
 </script>
 <template>

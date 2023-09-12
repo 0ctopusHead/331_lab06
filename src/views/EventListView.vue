@@ -55,8 +55,8 @@ function updateKeyword(value: string) {
     queryFunction = EventService.getEvent(3, 1);
   } else {
     queryFunction = EventService.getEventsByKeyWord(keyword.value, 3, 1);
-  }
-  queryFunction
+  } 
+   queryFunction
     .then((response: AxiosResponse<EventItem[]>) => {
       events.value = response.data;
       console.log("events", events.value);
@@ -67,9 +67,9 @@ function updateKeyword(value: string) {
       router.push({ name: "network-error" });
     });
 }
-</script>
+</script> 
 
-<template>
+i<template>
   <h1>Events For Good</h1>
   <main class="flex flex-col items-center">
     <div class="w-64">
