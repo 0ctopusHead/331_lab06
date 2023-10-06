@@ -3,9 +3,27 @@ import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import { useMessageStore } from './stores/message'
 import { storeToRefs } from 'pinia'
+import { useAuthStore } from './stores/auth'
+import { useRouter } from 'vue-router'
 
 const store = useMessageStore()
+const authStore = useAuthStore()
+const router = useRouter()
 const { message } = storeToRefs(store)
+const token = localStorage.getItem('token')
+const user = localStorage.getItem('user')
+if(token && user){
+  console.log(token)
+  console.log(user)
+  authStore.reload(token,JSON.parse(user))
+}
+else{
+  authStore.logout()
+}
+function logout(){
+  authStore.logout()
+  router.push({name: 'login'})
+}
 </script>
 
 <template>
@@ -14,14 +32,42 @@ const { message } = storeToRefs(store)
     <div id="flashMessage" v-if="message">
     <h4>{{ message }}</h4>
     </div>
-    <nav class="space-x-2 text-center">
-      <RouterLink :to="{name: 'event-list' ,query:{page: 1}}">Home</RouterLink> | 
-      <RouterLink :to="{name: 'about'}">About</RouterLink> |
-      <RouterLink :to="{name: 'add-event'}">New Event</RouterLink> |
-      <!-- <RouterLink :to="{name: 'add-organizer'}">New Organizer</RouterLink> | -->
-      <RouterLink :to="{name: 'menu'}">Menu</RouterLink> |
-      <RouterLink :to="{name: 'student-info'}">Student</RouterLink> 
+    <nav class="flex">
+     
+      <ul v-if="!authStore.currentUserName" class="flex navbar-nav ml-auto">
+        <li class="nav-item px-2">
+          <router-link to="/register" class="nav-link">
+            <font-awesome-icon icon="fa-user-plus" /> Sign Up
+          </router-link>
+        </li>
+        <li class="nav-item px-2">
+          <router-link to="/login" class="nav-link">
+            <font-awesome-icon icon="sign-in-alt"/> Login
+          </router-link>
+        </li>
+      </ul>
+      <ul v-else-if="authStore.currentUserName" class="flex navbar-nav ml-auto">
+        <li class="nav-item px-2">
+          <router-link to="/profile" class="nav-link">
+            <font-awesome-icon icon="user" />
+            {{ authStore.currentUserName }}
+          </router-link>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link hover:cursor-pointer" @click="logout">
+           <font-awesome-icon icon="sign-out-alt"/> LogOut
+          </a>
+        </li>
+      </ul>
+      
     </nav>
+    <RouterLink :to="{name: 'event-list' ,query:{page: 1}}">Home</RouterLink> | 
+      <!-- <RouterLink :to="{name: 'add-organizer'}">New Organizer</RouterLink> | -->
+      <RouterLink :to="{name: 'menu'}">Organizer</RouterLink> 
+      <span v-if="authStore.isAdmin"> |
+      <RouterLink :to="{name: 'add-organizer'}">New Organizer</RouterLink> |
+      <RouterLink :to="{name: 'add-event'}">New Event</RouterLink> 
+      </span>
   </header>
   <RouterView/>
 </template>

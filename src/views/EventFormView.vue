@@ -7,6 +7,7 @@ import { useMessageStore } from "@/stores/message";
 import BaseInput from "@/components/BaseInput.vue";
 import OrganizerService from "@/services/OrganizerService";
 import BaseSelect from "@/components/BaseSelect.vue";
+import ImageUpload from "@/components/ImageUpload.vue";
 
 const store = useMessageStore();
 const event = ref<EventItem>({
@@ -17,8 +18,9 @@ const event = ref<EventItem>({
   location: "",
   date: "",
   time: "",
-  organizer: { id: 0, name:"" },
+  organizer: { id: 0, name:"",image:[],roles:[] },
   petsAllowed: false,
+  images:[]
 });
 const router = useRouter();
 function saveEvent() {
@@ -62,6 +64,9 @@ OrganizerService.getOrganizers().then((response) => {
         v-model="event.organizer.id"
         label="Select an Organizer"
       ></BaseSelect>
+
+      <h3>The image of the Event</h3>
+      <ImageUpload v-model="event.images"/>
       <button type="submit">Submit</button>
     </form>
 

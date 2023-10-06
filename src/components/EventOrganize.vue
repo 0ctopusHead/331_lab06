@@ -1,5 +1,6 @@
 <template>
-  <div class="organize-class">
+  <RouterLink :to="{name:'organizer-detail', params:{id:organizer?.id}}">
+    <div class="organize-class">
    <div class="organize-card">
     <span>
        ID : {{organizer?.id}}
@@ -10,7 +11,8 @@
     </span>
     <br/>
    </div>
-  </div>
+  </div></RouterLink>
+
 </template>
 
 <script lang="ts" setup>

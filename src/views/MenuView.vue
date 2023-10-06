@@ -17,7 +17,7 @@ OrganizerService.getOrganizers()
 <template>
   <main class="flex flex-col items-center">
 
-      <EventOrganize v-for="organizer in organizers" :key="organizer.id" :organizer="organizer"></EventOrganize>
+  <EventOrganize v-for="organizer in organizers" :key="organizer.id" :organizer="organizer"></EventOrganize>
   </main>
 </template>
 

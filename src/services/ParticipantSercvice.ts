@@ -1,5 +1,6 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios' 
+import type { EventParticipant } from '@/type'
 const apiClient : AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
     withCredentials: false,
