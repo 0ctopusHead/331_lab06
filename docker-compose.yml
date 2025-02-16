@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+    web:
+        image: "octopushead/se331-lab06:latest"
+        ports:
+            - 8001:80
+      
+    
+      

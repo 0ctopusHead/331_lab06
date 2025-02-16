@@ -1,31 +1,43 @@
+<script lang="ts" setup>
+import BaseInput from '@/components/BaseInput.vue';
+import EventOrganize from '@/components/EventOrganize.vue';
+
+import OrganizerService from '@/services/OrganizerService';
+import type { EventOrganizer } from '@/type';
+
+import { ref, type Ref } from 'vue';
+
+const organizers: Ref<Array<EventOrganizer>> = ref([])
+OrganizerService.getOrganizers()
+.then((response) => {
+  organizers.value = response.data;
+})
+</script>
 
 <template>
   <main class="flex flex-col items-center">
-    <div>
-      <EventOrganize v-for="event in events" :key="event.id" :event="event"></EventOrganize>
-    </div>
+
+  <EventOrganize v-for="organizer in organizers" :key="organizer.id" :organizer="organizer"></EventOrganize>
   </main>
 </template>
 
-<script lang="ts" setup>
 
-import EventOrganize from '@/components/EventOrganize.vue'
-import type { EventItem } from '@/type'
-import { ref } from 'vue'
-import EventService from '@/services/EventService'
-import type { Ref } from 'vue'
-
-const events: Ref<Array<EventItem>> = ref([])
-  EventService.getMenu().then((respond) =>{
-    events.value = respond.data
-  })
-  
-</script>
-
-<style>
-.event {
+<style scoped>
+.pagination {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 290px;
+}
+.pagination a {
+  float: 1;
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+#page-prev {
+  text-align: left; 
+}
+
+#page-next {
+  text-align: right;
 }
 </style>

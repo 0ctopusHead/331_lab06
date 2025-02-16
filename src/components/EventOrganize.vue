@@ -1,26 +1,27 @@
 <template>
-  <div class="organize-class">
+  <RouterLink :to="{name:'organizer-detail', params:{id:organizer?.id}}">
+    <div class="organize-class">
    <div class="organize-card">
     <span>
-       Category : {{ event.category }}
+       ID : {{organizer?.id}}
     </span> 
      <br/>
     <span>
-       Organizer : {{ event.organizer }}
+       Organizer : {{ organizer?.name}}
     </span>
-  
-   
+    <br/>
    </div>
-  </div>
+  </div></RouterLink>
+
 </template>
 
 <script lang="ts" setup>
-  import type { EventItem } from '@/type'
-  import type { PropType } from 'vue' 
-  
-const props = defineProps({
-  event: {
-    type: Object as PropType<EventItem>,
+import type { EventOrganizer } from '@/type';
+import type { PropType } from 'vue';
+
+defineProps({
+  organizer: {
+    type: Object as PropType<EventOrganizer>,
     required: true
   }
 })

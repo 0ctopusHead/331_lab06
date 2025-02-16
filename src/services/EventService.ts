@@ -1,15 +1,6 @@
-import axios from 'axios'
-import type { AxiosInstance, AxiosResponse } from 'axios' 
+import type { AxiosResponse } from 'axios' 
 import type { EventItem } from '@/type'
-
-const apiClient : AxiosInstance = axios.create({
-    baseURL: 'http://localhost:3004',
-    withCredentials: false,
-    headers:{
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    }
-})
+import apiClient from './AxiosClient'
 
 export default{
     getEvent(perPage: Number, page: Number): Promise<AxiosResponse<EventItem[]>>{
@@ -18,7 +9,10 @@ export default{
     getEventById(id:number): Promise<AxiosResponse<EventItem>>{
         return apiClient.get<EventItem>('events/'+id.toString())
     },
-    getMenu(): Promise<AxiosResponse<EventItem[]>>{
-        return apiClient.get<EventItem[]> ('/events')
+    saveEvent(event: EventItem): Promise<AxiosResponse<EventItem>>{
+        return apiClient.post<EventItem>('/events', event)
+    },
+    getEventsByKeyWord(keyword: string,perPage: number, page: number): Promise<AxiosResponse<EventItem[]>>{
+        return apiClient.get<EventItem[]>('/events?title=' +keyword+'&_limit='+ perPage+ '&_page='+ page)
     }
 }
